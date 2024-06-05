@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Custom Checkbox</title>
+    <style>
+        :root {
+            font-family: sans-serif;
+
+            --checkbox-width: 2rem;
+            --checkbox-height: 2rem;
+            --checkbox-checked-bg-color: black;
+            --checkbox-border-color: black;
+            --checkbox-border-width: 0.15rem;
+            --checkbox-border-radius: 0.4rem;
+            --checkbox-outline-color: blue;
+            --checkbox-outline-width: 0.2rem;
+        }
+
+        label {
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            width: var(--checkbox-width);
+            height: var(--checkbox-height);
+            border: var(--checkbox-border-width) solid var(--checkbox-border-color);
+            border-radius: var(--checkbox-border-radius);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"]:focus {
+            outline: var(--checkbox-outline-width) solid var(--checkbox-outline-color);
+        }
+
+        input[type="checkbox"]:checked::before {
+            content: "";
+            width: var(--checkbox-width);
+            height: var(--checkbox-height);
+            display: block;
+            background-color: var(--checkbox-checked-bg-color);
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><polyline points="216 72.005 104 184 48 128.005" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline></svg>');
+        }
+    </style>
+</head>
+<body>
+<label>
+    <input type="checkbox" name="custom-checkbox" role="checkbox" tabindex="0" />
+    Checkbox
+</label>
+</body>
+</html>
